@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<script type="module" crossorigin src="/hex-global-web/assets/values-BkVUtkCy.js"></script>
+<link rel="modulepreload" crossorigin href="/hex-global-web/assets/main-XGS9Air6.js">
+<link rel="stylesheet" crossorigin href="/hex-global-web/assets/values-i0Z-fnr1.css">
+
+<body>
+  
+<div>
+  <button class="main-button-values valuesButton" onclick="mainButtonClicked('values')">Values</button>
+  <button class="main-button-calc calcButton" onclick="mainButtonClicked('calc')">Calculator</button>
+  <h1 class="title" id="title">Hex Global - Values</h1>
+  <img class="logo" id="logo" src="/hex-global-web/assets/hex%20global%20custom%20icon-CVZK_ViC.PNG"></img>
+</div>
+
+<div class="categoryContainer" id="categoryContainer">
+  <input type="text" class="minimumValue" id="minimumValue" value="Min Value: 0">
+  <input type="text" class="maximumValue" id="maximumValue" value="Max Value: Infinity">
+  <select id="rarity" class="rarityDropdown">
+    <option value="All" class="allDropdown">Rarity: All</option>
+    <option value="None" class="noneSelect">Rarity: None</option>
+    <option value="Legendary" class="legendarySelect">Rarity: Legendary</option>
+    <option value="Ultra Rare" class="ultraRareSelect">Rarity: Ultra Rare</option>
+    <option value="Rare" class="rareSelect">Rarity: Rare</option>
+    <option value="Common" class="commonSelect">Rarity: Common</option>
+  </select>
+  <select id="type" class="typeDropdown">
+    <option value="All" class="allDropdown">Type: All</option>
+    <option value="Card" class="cardSelect">Type: Card</option>
+    <option value="Item" class="itemSelect">Type: Item</option>
+  </select>
+  <select id="subtype" class="subtypeDropdown">
+    <option value="All" class="allDropdown">Subtype: All</option>
+    <option value="None" class="noneSelect">Subtype: None</option>
+    <option value="Reskin" class="reskinSelect">Subtype: Reskin</option>
+    <option value="Outfit" class="outfitSelect">Subtype: Outfit</option>
+    <option value="Cosmetic" class="cosmeticSelect">Subtype: Cosmetic</option>
+    <option value="Noisemaker" class="noisemakerSelect">Subtype: Noisemaker</option>
+    <option value="Animation" class="animationSelect">Subtype: Animation</option>
+    <option value="Golden Reskin" class="goldenreskinSelect">Subtype: Golden Reskin</option>
+    <option value="Goldifier" class="goldifierSelect">Subtype: Goldifier</option>
+    <option value="Consumable" class="consumableSelect">Subtype: Consumable</option>
+  </select>
+  <select id="status" class="statusDropdown">
+    <option value="All" class="allDropdown">Status: All</option>
+    <option value="Obtainable" class="obtainableSelect">Status: Obtainable</option>
+    <option value="Unobtainable" class="unobtainableSelect">Status: Unobtainable</option>
+  </select>
+  <select id="tl" class="tlDropdown"> <!-- shortened tradelocked cuz trade locked would be too long in the box -->
+    <option value="All" class="allDropdown">TL: All</option>
+    <option value="true" class="trueSelect">TL: True</option>
+    <option value="false" class="falseSelect">TL: False</option>
+  </select>
+</div>
+
+<div>
+  <input type="text" class="search" id="search" placeholder="Search">
+  <button class="search-button" id="search-button">
+    <img src="/hex-global-web/assets/search%20icon%20no%20bg-C_IQp9_b.png" alt="search button">
+  </button>
+</div>
+
+<div class="resultsContainer" id="resultsContainer">
+
+</div>
+
+<script>
+  function mainButtonClicked(button) {
+    if (button === 'calc') {
+      window.location.href = 'calc.html';
+    } else if (button === 'values') {
+      window.location.href = 'values.html';
+    }
+  }
+</script>
+</body>
+</html>
