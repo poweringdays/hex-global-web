@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" crossorigin href="/hex-global-web/assets/main-B1hr3K98.css">
+<script type="module" crossorigin src="/hex-global-web/assets/main-BjSC425l.js"></script>
+<link rel="modulepreload" crossorigin href="/hex-global-web/assets/main-C4VC-Anj.js">
+<link rel="stylesheet" crossorigin href="/hex-global-web/assets/main-IdRMVHDL.css">
 
 <body>
 
 <div class="center-container">
      <button class="main-button-calc calcButton" onpointerenter="onHover('calcButton')" onpointerleave="offHover('calcButton')" onclick="mainButtonClicked('calc')">Calculator</button>
   <button class="main-button-values valuesButton" onpointerenter="onHover('valuesButton')" onpointerleave="offHover('valuesButton')" onclick="mainButtonClicked('values')">Values</button>
+  <button class="main-button-library libraryButton" onpointerenter="onHover('libraryButton')" onpointerleave="offHover('libraryButton')" onclick="mainButtonClicked('library')">Library  (soon?)</button>
 </div>
 
 <div >
   <h1 class="title">Hex Global - Hexaria Values</h1>
   <h2 class="sub-title">Warning: Values may not be 100% accurate</h2>
-  <h3 class="version">v1.2.4</h3>
-  <h3 class="date-released">7.1.26</h3>
+  <h3 class="version">v1.2.5</h3>
+  <h3 class="date-released">3.2.26</h3>
   <a class="wiki-link" href="" onclick="openWiki()" id="wiki-link">Hexaria Wiki</a>
   <img class="logo" src="/hex-global-web/assets/hex%20global%20custom%20icon-CVZK_ViC.PNG"></img>
+  <button class="logs-button" onclick="openLogs()">Logs</button>
+  <div class="logs-container" id="logs-container"></div>
 </div>
+
 
 <script>
+
   function mainButtonClicked(button) {
     if (button === 'calc') {
       window.location.href = 'calc.html';
@@ -37,6 +44,11 @@
      element.style.border = '4px solid rgb(0, 255, 221)';  
      element.style.color =  'rgb(0, 255, 221)';
      element.style.padding = '34px 55px'; 
+    } else if (element === 'libraryButton') {
+     element = document.querySelector('.libraryButton');
+     element.style.border = '4px solid rgb(241, 57, 57)';
+     element.style.color = 'rgb(241, 57, 57)';
+     element.style.padding = '35px 22px';
     }
   }
   function offHover(element) {
@@ -44,9 +56,39 @@
      element = document.querySelector('.calcButton');
     } else if (element === 'valuesButton') {
      element = document.querySelector('.valuesButton');
+    } else if (element === 'libraryButton') {
+     element = document.querySelector('.libraryButton');
     }
     element.style = '';
   }
+
+  function openLogs() {
+    const logs_table = window.logs_table
+    const logsContainer = document.getElementById('logs-container');
+    if (logsContainer) {
+      if (logsContainer.style.display === 'flex') {
+        logsContainer.style.display = 'none';
+        logsContainer.innerHTML = '';
+        return;
+      }
+    }
+    const logs = document.createElement('div');
+    if (logsContainer && logs_table.length > 0) {
+      for (let i = logs_table.length - 1; i >= 0; i--) {
+      const log = document.createElement('div');
+      log.className = 'log';
+      log.textContent = logs_table[i].text;
+      logs.appendChild(log);
+      }
+      logsContainer.style.display = 'flex';
+      logsContainer.appendChild(logs);
+    } else {
+      return;
+    }
+    logsContainer.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+  }
+
+  
 
   function openWiki() {
     window.open('https://hexaria-full-version.fandom.com/wiki/Hexaria_Full_Version_Wiki', '_blank');
